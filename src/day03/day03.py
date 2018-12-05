@@ -19,7 +19,6 @@ def part_1(tot_map, lines, total_size):
     return np.unique(tot_map, return_counts=True)
 
 
-
 def part_2(tot, uni, cnt):
     for i, j in enumerate(uni):
         if tot[j] == cnt[i]:
@@ -52,8 +51,8 @@ def main():
     print("\nPart 2:", non_overlap_id)
     print("Time part 2: {0:.2f}ms".format((time.clock() - part_2_start) * 1000))
 
+    print("\nTotal time day 3: {0:.2f}ms".format((time.clock() - start_inputs) * 1000))
+
 
 if __name__ == "__main__":
-    start_time = time.clock()
     main()
-    print("\nTotal time: {0:.2f}ms".format((time.clock() - start_time) * 1000))

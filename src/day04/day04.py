@@ -128,9 +128,9 @@ def main():
     start_time_part_2 = time.time()
     part_2(input)
     end_time_part_2 = time.time()
-    print("Part 2 time: {0:.2f}ms".format((end_time_part_2 - start_time_part_2) * 1000))
+    print("\nPart 2 time: {0:.2f}ms".format((end_time_part_2 - start_time_part_2) * 1000))
 
-    print("Total time: {0:.2f}ms".format((time.time() - start_time_total) * 1000))
+    print("\nTotal time day 4: {0:.2f}ms".format((time.time() - start_time_total) * 1000))
 
 
 if __name__ == "__main__":
