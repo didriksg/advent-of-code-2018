@@ -9,6 +9,7 @@ from itertools import (combinations, chain, islice,
                        takewhile, zip_longest)
 
 import aocd
+import os
 
 letters = 'abcdefghijklmnopqrstuvwxyz'
 
@@ -23,7 +24,7 @@ BIG = 10 ** 999
 
 def Input(day, test=False):
     "Open this day's input file."
-    directory = '../input/'
+    directory = '/home/didrik/git/advent-of-code-2018/input/'
     is_test = "_test" if test else ""
     filename = directory + 'input{}{}.txt'.format(day, is_test)
     try:
