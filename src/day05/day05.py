@@ -3,7 +3,9 @@ import time
 from src.utils import Inputstr, letters
 
 
-def part_1(inputs, cs):
+# My original solution. Pretty simple, but it runs relatively slow (~200ms on the real input) compared to a solution
+# using stacks
+def original_part_1(inputs, cs):
     done = False
     new_string = inputs
 
@@ -18,6 +20,21 @@ def part_1(inputs, cs):
     return new_string
 
 
+# I improved my part one after seeing examples of using stacks. Adapted it to my original part1
+def part_1(inputs, cs):
+    total_stack = []
+    i = -1
+
+    for c in inputs:
+        if total_stack and total_stack[i] + c in cs:
+            total_stack.pop()
+            i -= 1
+        else:
+            total_stack.append(c)
+            i += 1
+    return "".join(total_stack)
+
+
 def part_2(inputs, cs):
     info = []
     input_bab = inputs
@@ -28,10 +45,10 @@ def part_2(inputs, cs):
 
 
 def create_containing_set():
-    containing_set = []
+    containing_set = set()
     for letter in letters:
-        containing_set.append(letter.upper() + letter.lower())
-        containing_set.append(letter.lower() + letter.upper())
+        containing_set.add(letter.upper() + letter.lower())
+        containing_set.add(letter.lower() + letter.upper())
     return containing_set
 
 
@@ -55,10 +72,10 @@ def main():
     start_time_part_2 = time.clock()
     most_efficient = part_2(input, containing_set)
     end_time_part_2 = time.clock()
-    print("Part 2:", len(most_efficient))
+    print("\nPart 2:", len(most_efficient))
     print("Part 2 time: {0:.2f}ms".format((end_time_part_2 - start_time_part_2) * 1000))
 
-    print("Total time: {0:.2f}ms".format((time.clock() - start_time_total) * 1000))
+    print("\nTotal time day 5: {0:.2f}ms".format((time.clock() - start_time_total) * 1000))
 
 
 if __name__ == "__main__":
