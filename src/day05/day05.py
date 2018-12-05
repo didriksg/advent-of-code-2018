@@ -20,7 +20,8 @@ def original_part_1(inputs, cs):
     return new_string
 
 
-# I improved my part one after seeing examples of using stacks. Adapted it to my original part1
+# I improved my part one after seeing examples of using stacks. Adapted it to my original part1. This runs a lot faster
+# on the same timing setup (~7ms)
 def part_1(input_string, cs):
     total_stack = []
     for c in input_string:
@@ -63,6 +64,9 @@ def main():
     print("Part 1 time: {0:.2f}ms".format((end_time_part_1 - start_time_part_1) * 1000))
 
     start_time_part_2 = time.clock()
+    
+    # Feeding the already optimized string into part_2 reduces the runtime of part_2 a lot, as it is not needed
+    # to do the initial optimizing more than once. Reduces runtime from ~180ms to ~35ms.  
     most_efficient = part_2(tot_string, containing_set)
     end_time_part_2 = time.clock()
     print("\nPart 2:", len(most_efficient))
