@@ -3,8 +3,8 @@ import time
 from src.utils import Inputstr, letters
 
 
-# My original solution. Pretty simple, but it runs relatively slow (~200ms on the real input) compared to a solution
-# using stacks
+# My original solution. Pretty simple (and maybe a bit naive), but it runs relatively slow (~200ms on the real input)
+# compared to a solution using stacks
 def original_part_1(inputs, cs):
     done = False
     new_string = inputs
@@ -21,17 +21,10 @@ def original_part_1(inputs, cs):
 
 
 # I improved my part one after seeing examples of using stacks. Adapted it to my original part1
-def part_1(inputs, cs):
+def part_1(input_string, cs):
     total_stack = []
-    i = -1
-
-    for c in inputs:
-        if total_stack and total_stack[i] + c in cs:
-            total_stack.pop()
-            i -= 1
-        else:
-            total_stack.append(c)
-            i += 1
+    for c in input_string:
+        total_stack.pop() if total_stack and total_stack[-1] + c in cs else total_stack.append(c)
     return "".join(total_stack)
 
 
