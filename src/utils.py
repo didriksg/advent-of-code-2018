@@ -10,8 +10,9 @@ from itertools import (combinations, chain, islice,
 
 import aocd
 import os
+from string import ascii_lowercase
 
-letters = 'abcdefghijklmnopqrstuvwxyz'
+letters = ascii_lowercase
 
 cache = lru_cache(None)
 

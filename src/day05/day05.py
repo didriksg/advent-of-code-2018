@@ -34,7 +34,7 @@ def part_2(inputs, cs):
     reduced_string = inputs
     for letter in letters:
         new_string = reduced_string.replace(letter.upper(), "").replace(letter.lower(), "")
-        info.append((part_1(new_string, cs)))
+        info.append(part_1(new_string,cs))
     return min(info, key=len)
 
 
@@ -59,7 +59,7 @@ def main():
     containing_set = create_containing_set()
     tot_string = part_1(input, containing_set)
     end_time_part_1 = time.clock()
-    print("Part 1 string: {}".format(tot_string))
+    print("Part 1 string: {}".format("".join(tot_string)))
     print("Part 1 length: {}".format(len(tot_string)))
     print("Part 1 time: {0:.2f}ms".format((end_time_part_1 - start_time_part_1) * 1000))
 
