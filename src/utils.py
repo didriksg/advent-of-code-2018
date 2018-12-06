@@ -31,6 +31,8 @@ def Input(day, test=False):
     try:
         return open(filename)
     except FileNotFoundError:
+        if test:
+            return
         file = open(filename, "w+")
         data = aocd.get_data(day=int(day), year=2018)
         file.write(data)
